@@ -157,7 +157,62 @@ select  region ,  sum(sales) from superstore_sales
 
  --now we have to perfrom join
 
- -- Create employees table
+-- -- Create employees table
+-- CREATE TABLE employees (
+--     emp_id INT PRIMARY KEY,
+--     emp_name VARCHAR(50),
+--     department_id INT
+-- );
+
+-- -- Create departments table
+-- CREATE TABLE departments (
+--     department_id INT PRIMARY KEY,
+--     department_name VARCHAR(50)
+-- );
+-- -- Insert data into employees table
+-- INSERT INTO employees (emp_id, emp_name, department_id) VALUES
+-- (1, 'John', 1),
+-- (2, 'Alice', 1),
+-- (3, 'Bob', 2),
+-- (4, 'Carol', 4);
+
+-- -- Insert data into departments table
+-- INSERT INTO departments (department_id, department_name) VALUES
+-- (1, 'Sales'),
+-- (2, 'Marketing'),
+-- (3, 'HR');
+
+
+-- -- Inner Join/join
+-- select * from employees as e
+-- inner join departments as d
+-- on e.department_id=d.department_id;
+-- -- Inner Join emp_name,department_name
+-- select e.department_id,emp_name,
+-- 	department_name from employees as e
+-- inner join departments as d
+-- on e.department_id=d.department_id;
+
+
+-- -- left Join/join
+
+--  select * from employees as e 
+-- left join departments as d
+-- on e.department_id=d.department_id;
+
+-- select e.department_id,emp_name,
+-- 	department_name from employees as e
+-- left join departments as d
+-- on e.department_id=d.department_id;
+
+-- --right join/join
+
+--  select * from employees as e 
+-- right join departments as d
+-- on e.department_id=d.department_id;
+
+
+-- Create employees table
 CREATE TABLE emp_data (
 emp_id INT PRIMARY KEY,
 emp_name VARCHAR(50),
@@ -166,7 +221,39 @@ department_id INT
 -- Create departments table
 CREATE TABLE department_data (
 department_id INT PRIMARY KEY,
-department_name VARCHAR(50);
+department_name VARCHAR(50)
+);
+-- Insert data into employees table
+INSERT INTO emp_data (emp_id, emp_name, department_id) VALUES
+(1, 'John', 1),
+(2, 'Alice', 1),
+(3, 'Bob', 2),
+(4, 'Carol', 4);
+-- Insert data into departments table
+INSERT INTO department_data(department_id, department_name) VALUES
+(1, 'Sales'),
+(2, 'Marketing'),
+(3, 'HR');
+
+select * from emp_data;
+
+select * from department_data
+
+--inner join
+
+select * from emp_data e
+inner join department_data d
+on e.department_id = d.department_id ;
 
 
-  
+--left join
+
+select * from emp_data e
+left join department_data d
+on e.department_id = d.department_id ;
+
+--full join or outer join
+
+select * from emp_data e
+full join department_data d
+on e.department_id = d.department_id ;  
